@@ -59,7 +59,7 @@ The way to interpret this is is:
 
 - Values of `x < 0` are not meaningful.
 
-- At `x = 0`, there is no center segment and the diagram looks like this:
+- At `x = 0`, the center segment degenerates to a point, and the diagram looks like this:
 
 ![Graph](/2018-06-01/graph4.PNG)
 
