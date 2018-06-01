@@ -5,7 +5,7 @@ Consider four towns arranged to form the corners of a square, where each side is
 
 _Extra credit_: How does your business calculus change if there were five towns arranged as a pentagon? Six as a hexagon? Etc.?
 
-## Answer:
+### Answer:
 
 Ollie clarified on Twitter that we should think of the towns as points at the corners.
 
@@ -13,7 +13,9 @@ By a kind of heuristic / guessing / iterative reduction method, I found that the
 
 ![Points](/2018-06-01/points2.PNG)
 
-Assuming the four outlying segments have the same length, that length is a function of the length of the middle segment.
+_NOTE: The gridlines represent miles, so the points define a square with sides of length 10.
+
+Assuming the four outlying segments have the same length, that length is a function of the length of the center segment.
 
 I tried to come up with `y = f(x)`, where `f(x)` describes the length of all 5 segments.
 
