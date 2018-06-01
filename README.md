@@ -55,7 +55,29 @@ Graphing that, courtesy of https://www.desmos.com/calculator:
 
 ![Graph](/2018-06-01/graph1.png)
 
-The way to interpret this is that there is a minimum in cost at around `x ~ 4`. To find that mininum, we calculate the derivative of `y`, `y'`:
+The way to interpret this is is:
+
+- Values of `x < 0` are not meaningful.
+
+- At `x = 0`, there is no center segment and the diagram looks like this:
+
+![Graph](/2018-06-01/graph4.PNG)
+
+The length here is just over $28m (`2 * 10 * sqrt(2)`).
+
+- At `x ~ 4`, there's a local minimum and the diagram looks like this:
+
+![Graph](/2018-06-01/points2.PNG)
+
+- At `x = 10`, the outlying segments become completely orthogonal to the center segment and the diagram looks like this:
+
+![Graph](/2018-06-01/points6.PNG)
+
+_Note that the graph shows `y = 30` for `x = 10`, which is verifiable by inspection._
+
+- At `x > 10`, the outlying segments actually tilt away from the center, and the length can grow without bound.
+
+So, there is a minimum in cost at around `x ~ 4`. To find that mininum, we calculate the derivative of `y`, `y'`:
 
 ![Equation](/2018-06-01/equation2.PNG)
 
