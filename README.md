@@ -7,13 +7,19 @@ _Extra credit_: How does your business calculus change if there were five towns 
 
 ### Answer:
 
-Ollie clarified on Twitter that we should think of the towns as points at the corners.
+Ollie clarified on Twitter that we should think of the towns as points at the corners:
+
+![Points](/2018-06-01/points5.PNG)
+
+_NOTE: The gridlines represent miles, so the points define a square with sides of length 10:_
+
+![Points](/2018-06-01/points4.PNG)
 
 By a kind of heuristic / guessing / iterative reduction method, I found that the shortest graph I could come up with that connects those four points looked like this:
 
 ![Points](/2018-06-01/points2.PNG)
 
-_NOTE: The gridlines represent miles, so the points define a square with sides of length 10._
+
 
 Assuming the four outlying segments have the same length, that length is a function of the length of the center segment.
 
