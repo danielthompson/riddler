@@ -7,11 +7,11 @@ _Extra credit_: How does your business calculus change if there were five towns 
 
 ### Answer:
 
-Ollie clarified on Twitter that we should think of the towns as points at the corners:
+Ollie clarified on Twitter that we should think of the towns as points at the corners of a square:
 
 ![Points](/2018-06-01/points5.PNG)
 
-_NOTE: The gridlines represent miles, so the points define a square with sides of length 10:_
+_NOTE: The gridlines represent miles; each side has length 10:_
 
 ![Points](/2018-06-01/points4.PNG)
 
