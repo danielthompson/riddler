@@ -11,3 +11,4 @@ Ollie clarified on Twitter that we should think of the towns as points at the co
 
 By a kind of heuristic / guessing / iterative reduction method, I found that the shortest graph I could come up with that connects those four points looked like this:
 
+![Points](/2018-06-01/points.svg)
