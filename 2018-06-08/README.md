@@ -63,3 +63,23 @@ In the second equation, our mathematical spies have said that one of the letters
 ![Message 2](message2.png)
 
 ### Answer:
+
+Start by replacing the blanks with symbols:
+
+![Message](message3.PNG)
+
+There are 10 distinct symbols:
+
+E H K M R X A B C D
+
+Since all 10 digits appear in the equation, this means that each distinct symbol's digit is distinct (i.e. E and H can't stand for the same number).
+
+Since 9 + 9 + 1 = 19, A must be either 0 or 1.
+
+![Message](step2.PNG)
+
+Since all symbols are distinct, K cannot be 0, because that would cause E to also be 0.
+
+![Message](step3.PNG)
+
+
