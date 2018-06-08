@@ -118,10 +118,25 @@ This eliminates X = 0, 3, 5, 7, 9
 
 ![Message](step6.png)
 
-Next, notice the following three columns:
+Next, notice the following two columns:
 
-- E + E = K
-- E + E = X
+- E + E + 1? = K
 - K + K = E
 
 ![Message](step7.png)
+
+E + E = K might have a carry digit, but K + K = E doesn't. So, we can construct a truth table for the possible values of K and E and see which values satisfy both equations:
+
+K|E|K + K = E|E + E + <sup>1?</sup> = K 
+-|-|-|-
+1|2|1 + 1 = 2 => True|2 + 2 + 1? = 1 => False
+2|4|2 + 2 = 4 => True|4 + 4 + 1? = 2 => False
+3|6|3 + 3 = 6 => True|6 + 6 + 1? = 3 => True
+4|8|4 + 4 = 8 => True|8 + 8 + 1? = 4 => False
+5|<sup>1</sup>0|5 + 5 = <sup>1</sup>0 => True|0 + 0 + 1? = 5 => False
+6|<sup>1</sup>2|6 + 6 = <sup>1</sup>2 => True|2 + 2 + 1? = 6 => False
+7|<sup>1</sup>4|7 + 7 = <sup>1</sup>4 => True|4 + 4 + 1? = 7 => False
+8|<sup>1</sup>6|8 + 8 = <sup>1</sup>6 => True|6 + 6 + 1? = 8 => False
+9|<sup>1</sup>8|9 + 9 = <sup>1</sup>8 => True|8 + 8 + 1? = 9 => False
+
+Therefore, K = 3 and E = 6.
