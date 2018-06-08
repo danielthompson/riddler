@@ -72,11 +72,9 @@ There are 10 distinct symbols:
 
 E H K M R X A B C D
 
-Since all 10 digits appear in the equation, this means that each distinct symbol's digit is distinct (i.e. E and H can't stand for the same number).
-
 Not shown in the original problem are each column's carry digit, which are each either 0 or 1.
 
-A a special case in that it is effectively the carry digit for E + E. S. Therefore, A must be either 0 or 1.
+A is a special case in that it is effectively the carry digit for E + E. S. Therefore, A must be either 0 or 1.
 
 ![Message](step2.PNG)
 
@@ -84,7 +82,7 @@ Since all symbols are distinct, K cannot be 0, because that would cause E to als
 
 ![Message](step3.PNG)
 
-Since 2 * any integer must be even, E cannot be odd.
+Since 2 * any integer must be even, and the answer's rightmost column cannot have had a carry digit added to it, E cannot be odd.
 
 ![Message](step4.PNG)
 
