@@ -182,3 +182,19 @@ H|2 + H + 1?|B available?|Creates carry digit in column 2?
 Therefore, H = 8 and B = 2.
 
 ![Message](step12.png)
+
+Now we can use process of elimination to fill out the rest of the puzzle:
+
+- R = 7, since that's the only possible value left for R
+
+![Message](step13.png)
+
+- M = 4, since M is the only symbol left that can be 4
+
+![Message](step14.png)
+
+- C = 5, since that's the only remaining symbol and value pair.
+
+![Message](step15.png)
+
+That leaves us with an equation: 6,247,663 + 6,837,633 = 13,085,296, which you can verify is true by doing the addition.
