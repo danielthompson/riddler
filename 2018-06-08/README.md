@@ -74,7 +74,9 @@ E H K M R X A B C D
 
 Since all 10 digits appear in the equation, this means that each distinct symbol's digit is distinct (i.e. E and H can't stand for the same number).
 
-Since 9 + 9 + 1 = 19, A must be either 0 or 1.
+Not shown in the original problem are each column's carry digit, which are each either 0 or 1.
+
+A a special case in that it is effectively the carry digit for E + E. S. Therefore, A must be either 0 or 1.
 
 ![Message](step2.PNG)
 
