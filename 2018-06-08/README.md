@@ -165,6 +165,20 @@ Therefore, we can eliminate R = 0, 4, and 5, and C = 0, 4, 8:
 
 ![Message](step10.png)
 
-Next, note that 2 + H = B, and that 2 + H must create a carry digit. 
+Next, note that in column 3, we have 2 + H = B, and that 2 + H must create a carry digit. 
 
 ![Message](step11.png)
+
+What values of H and B could satisfy this?
+
+H|2 + H + 1?|B available?|Creates carry digit in column 2?
+-|-|-|-
+0|2 + 1?|No|No
+4|6 + 1?|Yes|No
+5|7 + 1?|Yes|No
+7|9 + 1?|No|Yes
+8|0 + 1?|Yes|Yes
+
+Therefore, H = 8 and B = 2.
+
+![Message](step12.png)
