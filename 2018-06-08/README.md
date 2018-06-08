@@ -139,4 +139,13 @@ K|E|K + K = E|E + E + <sup>1?</sup> = K
 8|<sup>1</sup>6|8 + 8 = <sup>1</sup>6 => True|6 + 6 + 1? = 8 => False
 9|<sup>1</sup>8|9 + 9 = <sup>1</sup>8 => True|8 + 8 + 1? = 9 => False
 
-Therefore, K = 3 and E = 6.
+Therefore, K = 3 and E = 6, and there's a carry digit in column 2. Recall that column 1 is just the carry digit of column 2, so A = 1.
+
+![Message](step8.png)
+
+Then, we can fill out D = 9 and X = 2 by inspection:
+
+![Message](step9.png)
+
+Halfway there!
+
