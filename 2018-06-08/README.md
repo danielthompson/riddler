@@ -82,4 +82,22 @@ Since all symbols are distinct, K cannot be 0, because that would cause E to als
 
 ![Message](step3.PNG)
 
+Since 2 * any integer must be even, E cannot be odd.
 
+![Message](step4.PNG)
+
+Adding up all the possibilities for K and E to determine D (making sure to carry the 1, if needed):
+
+K|E|D
+-|-|-
+1|2|3
+2|4|6
+3|6|9
+4|8|<sup>1</sup>2
+5|<sup>1</sup>0|6
+6|<sup>1</sup>2|9
+7|<sup>1</sup>4|<sup>1</sup>2
+8|<sup>1</sup>6|<sup>1</sup>5
+9|<sup>1</sup>8|<sup>1</sup>8
+
+This eliminates D = 0, 1, 4, 7
