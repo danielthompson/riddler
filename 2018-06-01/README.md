@@ -18,7 +18,7 @@ _NOTE: The gridlines represent miles; each side has length 10:_
 By a kind of heuristic / guessing / iterative reduction method, I found that the shortest graph I could come up with that connects those four points looked like this:
 
 ![Points](points2.PNG)
- 
+
 
 
 Assuming the four outlying segments have the same length, that length is a function of the length of the center segment.
@@ -55,7 +55,29 @@ Graphing that, courtesy of https://www.desmos.com/calculator:
 
 ![Graph](graph1.png)
 
-The way to interpret this is that there is a minimum in cost at around `x ~ 4`. To find that mininum, we calculate the derivative of `y`, `y'`:
+The way to interpret this is is:
+
+- Values of `x < 0` are not meaningful.
+
+- At `x = 0`, the center segment degenerates to a point, and the diagram looks like this:
+
+![Graph](graph4.PNG)
+
+The length here is just over $28m (`2 * 10 * sqrt(2)`).
+
+- At `x ~ 4`, there's a local minimum and the diagram looks like this:
+
+![Graph](points2.PNG)
+
+- At `x = 10`, the outlying segments become completely orthogonal to the center segment and the diagram looks like this:
+
+![Graph](points6.PNG)
+
+_Note that the graph shows `y = 30` for `x = 10`, which is verifiable by inspection._
+
+- At `x > 10`, the outlying segments actually tilt away from the center, and the length can grow without bound.
+
+So, there is a minimum in cost at around `x ~ 4`. To find that mininum, we calculate the derivative of `y`, `y'`:
 
 ![Equation](equation2.PNG)
 
