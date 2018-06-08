@@ -149,3 +149,22 @@ Then, we can fill out D = 9 and X = 2 by inspection:
 
 Halfway there!
 
+Next, note that 1 + R + R = C.
+
+Plugging this into a truth table with our remaining values:
+
+R|1 + R + R|C Available?
+-|-|-
+0|1|No
+4|9|No
+5|1|No
+7|5|Yes
+8|7|Yes
+
+Therefore, we can eliminate R = 0, 4, and 5, and C = 0, 4, 8:
+
+![Message](step10.png)
+
+Next, note that 2 + H = B, and that 2 + H must create a carry digit. 
+
+![Message](step11.png)
