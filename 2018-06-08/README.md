@@ -30,15 +30,15 @@ There are 5 * 4 * 3 * 2 * 1 = 120 permutations of people/role assignments. Howev
 
 So, how many of those 44 include * A * * * or B * * * *?
 
-**BADEC**|**BAECD**|**BCAED**|**BCDEA** 
-**BCEAD**|**BDAEC**|**BDEAC**|**BDECA**
-**BEACD**|**BEDAC**|**BEDCA**|**CABED**
-**CADEB**|**CAEBD**|CDAEB|CDBEA
+**BA**DEC|**BA**ECD|**B**CAED|**B**CDEA 
+**B**CEAD|**B**DAEC|**B**DEAC|**B**DECA
+**B**EACD|**B**EDAC|**B**EDCA|C**A**BED
+C**A**DEB|C**A**EBD|CDAEB|CDBEA
 CDEAB|CDEBA|CEABD|CEBAD
-CEDAB|CEDBA|**DABEC**|**DAEBC**
-**DAECB**|DCAEB|DCBEA|DCEAB
+CEDAB|CEDBA|D**A**BEC|D**A**EBC
+D**A**ECB|DCAEB|DCBEA|DCEAB
 DCEBA|DEABC|DEACB|DEBAC
-DEBCA|**EABCD**|**EADBC**|**EADCB**
+DEBCA|E**A**BCD|E**A**DBC|E**A**DCB
 ECABD|ECBAD|ECDAB|ECDBA
 EDABC|EDACB|EDBAC|EDBCA
 
