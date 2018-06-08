@@ -14,7 +14,7 @@ Assuming that every valid reallocation of characters is equally likely, what is 
 
 I started by laying out the people and role combinations in a table, like so:
 
- |1 - V|2 - V|3 - H|4 - H|5 - H
+Person / Role  |1 - V|2 - V|3 - H|4 - H|5 - H
 -|-|-|-|-
 A|X| | | | 
 B| |X| | | 
