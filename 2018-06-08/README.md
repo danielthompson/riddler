@@ -183,7 +183,7 @@ Therefore, H = 8 and B = 2.
 
 ![Message](step12.png)
 
-Now we can use process of elimination to fill out the rest of the puzzle:
+Now we can use Sudoku-like deduction on our grid to fill out the rest of the puzzle:
 
 - R = 7, since that's the only possible value left for R
 
