@@ -10,7 +10,7 @@ Assuming that every valid reallocation of characters is equally likely, what is 
 
 ### Answer:
 
-*20%.*
+*45.45%*
 
 I started by laying out the people and role combinations in a table, like so:
 
@@ -42,38 +42,7 @@ DEBCA|E**A**BCD|E**A**DBC|E**A**DCB
 ECABD|ECBAD|ECDAB|ECDBA
 EDABC|EDACB|EDBAC|EDBCA
 
-Person A starts out in role 1, a villain. Since she must switch characters, she has 4 potential roles to switch to. She can only be a villain again if she switches to role 2. Therefore, the probability of that initial switch is 1/4. 
-
-Similarly, person B starts out in role 2, a villain. She can only be a villain again if she switches to role 1. Since A has already switched, the probability of person B switching into role 1 depends on what A switched into:
-
-P(B => 1) = (P(B => 1|A = 2) + P(B => 1|A = 3) + P(B => 1|A = 4) + P(B => 1|A = 5)) / 4
-
-P(B => 1|A = 2) = 1/4
-
-P(B => 1|A = 3) = 1/3
-
-P(B => 1|A = 4) = 1/3
-
-P(B => 1|A = 5) = 1/3
-
-P(B => 1) = (1/4 + 1/3 + 1/3 + 1/3) / 4
-
-P(B => 1) = (3/12 + 4/12 + 4/12 + 4/12) / 4
-
-P(B => 1) = (15/12) * 1 / 4
-
-P(B => 1) = (15/48)
-
-Therefore, the probability of either of these things happening is 
-
-=> 1/4 + 15/48
-
-=> 12/48 + 15/48
-
-=> 27/48
-
-Furthermore, 
-
+Counting those up = 20 / 44 = 5 / 11 = 45.45%
 
 ### Riddler Classic 6/8/2018
 
