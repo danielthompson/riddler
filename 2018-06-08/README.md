@@ -94,10 +94,31 @@ K|E|D
 2|4|6
 3|6|9
 4|8|<sup>1</sup>2
-5|<sup>1</sup>0|6
+5|c0|6
 6|<sup>1</sup>2|9
 7|<sup>1</sup>4|<sup>1</sup>2
 8|<sup>1</sup>6|<sup>1</sup>5
 9|<sup>1</sup>8|<sup>1</sup>8
 
 This eliminates D = 0, 1, 4, 7
+
+![Message](step5.PNG)
+
+Continuing on for X:
+
+D|E|X
+-|-|-
+2/5/8|0|1
+-|2|4
+-|4|8
+-|6|<sup>1</sup>2
+-|8|<sup>1</sup>6
+
+This eliminates X = 0, 3, 5, 7, 9
+
+![Message](step6.PNG)
+
+Since we could be carrying a 1 into R + R = C, C can be any digit except 0.
+
+![Message](step7.PNG)
+
