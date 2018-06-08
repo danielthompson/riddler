@@ -94,7 +94,7 @@ K|E|D
 2|4|6
 3|6|9
 4|8|<sup>1</sup>2
-5|c0|6
+5|<sup>1</sup>0|6
 6|<sup>1</sup>2|9
 7|<sup>1</sup>4|<sup>1</sup>2
 8|<sup>1</sup>6|<sup>1</sup>5
@@ -118,7 +118,10 @@ This eliminates X = 0, 3, 5, 7, 9
 
 ![Message](step6.png)
 
-Since we could be carrying a 1 into R + R = C, and R and C cannot both be 0, C cannot be 0.
+Next, notice the following three columns:
+
+- E + E = K
+- E + E = X
+- K + K = E
 
 ![Message](step7.png)
-
