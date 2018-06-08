@@ -116,9 +116,9 @@ D|E|X
 
 This eliminates X = 0, 3, 5, 7, 9
 
-![Message](step6.PNG)
+![Message](step6.png)
 
-Since we could be carrying a 1 into R + R = C, C can be any digit except 0.
+Since we could be carrying a 1 into R + R = C, and R and C cannot both be 0, C cannot be 0.
 
-![Message](step7.PNG)
+![Message](step7.png)
 
