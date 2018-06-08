@@ -14,8 +14,8 @@ Assuming that every valid reallocation of characters is equally likely, what is 
 
 I started by laying out the people and role combinations in a table, like so:
 
- |1 - V|2 - V|3 - H|4 - H|5 - H
------
+a|1 - V|2 - V|3 - H|4 - H|5 - H
+-|-|-|-|-
 A|X| | | | 
 B| |X| | | 
 C| | |X| | 
@@ -31,7 +31,7 @@ There are 5 * 4 * 3 * 2 * 1 = 120 permutations of people/role assignments. Howev
 So, how many of those 44 include * A * * * or B * * * *?
 
 |||
-------
+-|-|-|-
 BADEC|BAECD|BCAED|BCDEA 
 BCEAD|BDAEC|BDEAC|BDECA 
 BEACD|BEDAC|BEDCA|CABED
