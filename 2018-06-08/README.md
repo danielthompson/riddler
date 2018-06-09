@@ -62,7 +62,7 @@ In the second equation, our mathematical spies have said that one of the letters
 
 ![Message 2](message2.png)
 
-### Answer:
+### Answer (1st equation):
 
 Start by replacing the blanks with symbols:
 
@@ -198,3 +198,240 @@ Now we can use Sudoku-like deduction on our grid to fill out the rest of the puz
 ![Message](step15.png)
 
 That leaves us with an equation: 6,247,663 + 6,837,633 = 13,085,296, which you can verify is true by doing the addition.
+
+### Answer (2nd equation):
+
+This one stumped me, so I wrote a short C++ program to brute force it (code included at bottom of answer).
+
+The output of the program shows the following:
+
+```
+Original letters: 
+    Y T B B E D M K D
++   Y H D B T Y Y D D 
+  -------------------
+  E D Y T E R T P T Y 
+
+NOTE: Indexes are zero-based from the top right (index 0) to the bottom left (index 27).
+
+Found match(es) in base permutation: 
+B	5
+D	3
+E	1
+H	7
+K	4
+M	2
+P	8
+R	0
+T	9
+Y	6
+
+Decoded letters from base permutation (sum is false): 
+    6 9 5 5 1 3 2 4 3
++   6 7 3 5 9 6 6 3 3 
+  -------------------
+  1 3 6 9 1 0 9 8 9 6 
+
+Can make into a valid sum by switching term 1
+from K/4 to Y/6
+
+    6 9 5 5 1 3 2*6*3 
++   6 7 3 5 9 6 6 3 3 
+  -------------------
+  1 3 6 9 1 0 9 8 9 6 
+
+Can make into a valid sum by switching term 10
+from D/3 to B/5
+
+    6 9 5 5 1 3 2 4 3 
++   6 7 3 5 9 6 6*5*3 
+  -------------------
+  1 3 6 9 1 0 9 8 9 6 
+
+Can make into a valid sum by switching term 19
+from T/9 to H/7
+
+    6 9 5 5 1 3 2 4 3 
++   6 7 3 5 9 6 6 3 3 
+  -------------------
+  1 3 6 9 1 0 9 8*7*6 
+```
+
+With the letter -> number mapping I found, there are actually three different replacements that could be made to make the sum true. The first one causes the digit 4 to be absent from the decoded addends and sum, which violates the rules. Both the second and third ones are valid according to the rules, as far as I can tell. 
+
+
+```C++
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+constexpr char letters[] = {'B', 'D', 'E', 'H', 'K', 'M', 'P', 'R', 'T', 'Y'};
+
+std::vector<int> digits = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+const std::vector<int> origTermIndices = {
+      1, 4, 5, 1, 2, 0, 0, 8, 9,
+      1, 1, 9, 9, 8, 0, 1, 3, 9,
+      9, 8, 6, 8, 7, 2, 8, 9, 1, 2
+};
+
+void print(const std::vector<int> &indices, const bool printLetters, int highlightIndex) {
+   std::cout << "    ";
+   for (int k = 8; k >= 0; k--) {
+      if (highlightIndex == k) {
+         std::cout << '*';
+      }
+      if (printLetters) {
+         std::cout << letters[indices[k]];
+      }
+      else {
+         std::cout << digits[indices[k]];
+      }
+      if (highlightIndex == k) {
+         std::cout << '*';
+      }
+      else if (highlightIndex != k - 1) {
+            std::cout << ' ';
+      }
+   }
+
+   std::cout << std::endl;
+
+   std::cout << "+   ";
+   for (int k = 17; k >= 9; k--) {
+      if (highlightIndex == k) {
+         std::cout << '*';
+      }
+      if (printLetters) {
+         std::cout << letters[indices[k]];
+      }
+      else {
+         std::cout << digits[indices[k]];
+      }
+      if (highlightIndex == k) {
+         std::cout << '*';
+      }
+      else if (highlightIndex != k - 1) {
+         std::cout << ' ';
+      }
+   }
+
+   std::cout << std::endl << "  -------------------" << std::endl;
+
+   std::cout << "  ";
+   for (int k = 27; k >= 18; k--) {
+      if (highlightIndex == k) {
+         std::cout << '*';
+      }
+      if (printLetters) {
+         std::cout << letters[indices[k]];
+      }
+      else {
+         std::cout << digits[indices[k]];
+      }
+      if (highlightIndex == k) {
+         std::cout << '*';
+      }
+      else if (highlightIndex != k - 1) {
+         std::cout << ' ';
+      }
+   }
+
+   std::cout << std::endl << std::endl;
+}
+
+int main() {
+
+   std::cout << "Original letters: " << std::endl;
+   print(origTermIndices, true, -1);
+
+   std::cout << "NOTE: Indexes are zero-based from the top right (index 0) to the bottom left (index 27)." << std::endl << std::endl;
+
+   std::vector<int> termIndices = {
+         1, 4, 5, 1, 2, 0, 0, 8, 9,
+         1, 1, 9, 9, 8, 0, 1, 3, 9,
+         9, 8, 6, 8, 7, 2, 8, 9, 1, 2
+   };
+
+   bool shouldPrintPermutation;
+
+   do {
+      shouldPrintPermutation = true;
+
+      // switch place
+      for (int i = 0; i < termIndices.size(); i++) {
+
+         // the original term for this try
+         int orig = termIndices[i];
+         // switch number
+         for (int j = 0; j < 10; j++) {
+
+            termIndices[i] = j;
+            long term1 =
+                  1 * digits[termIndices[0]] +
+                  10 * digits[termIndices[1]] +
+                  100 * digits[termIndices[2]] +
+                  1000 * digits[termIndices[3]] +
+                  10000 * digits[termIndices[4]] +
+                  100000 * digits[termIndices[5]] +
+                  1000000 * digits[termIndices[6]] +
+                  10000000 * digits[termIndices[7]] +
+                  100000000 * digits[termIndices[8]];
+
+            long term2 =
+                  1 * digits[termIndices[9]] +
+                  10 * digits[termIndices[10]] +
+                  100 * digits[termIndices[11]] +
+                  1000 * digits[termIndices[12]] +
+                  10000 * digits[termIndices[13]] +
+                  100000 * digits[termIndices[14]] +
+                  1000000 * digits[termIndices[15]] +
+                  10000000 * digits[termIndices[16]] +
+                  100000000 * digits[termIndices[17]];
+
+            long expectedSum =
+                  1 * digits[termIndices[18]] +
+                  10 * digits[termIndices[19]] +
+                  100 * digits[termIndices[20]] +
+                  1000 * digits[termIndices[21]] +
+                  10000 * digits[termIndices[22]] +
+                  100000 * digits[termIndices[23]] +
+                  1000000 * digits[termIndices[24]] +
+                  10000000 * digits[termIndices[25]] +
+                  100000000 * digits[termIndices[26]] +
+                  1000000000 * digits[termIndices[27]];
+
+            long sum = term1 + term2;
+
+            if (sum == expectedSum) {
+
+               if (shouldPrintPermutation) {
+                  std::cout << "Found match(es) in base permutation: " << std::endl;
+
+                  for (int k = 0; k < 10; k++) {
+                     std::cout << letters[k] << '\t' << digits[k] << std::endl;
+                  }
+                  std::cout << std::endl;
+
+                  std::cout << "Decoded letters from base permutation (sum is false): " << std::endl;
+
+                  print(origTermIndices, false, -1);
+                  shouldPrintPermutation = false;
+               }
+               std::cout << "Can make into a valid sum by switching term " << i << std::endl;
+               std::cout << "from " << letters[orig] << "/" << digits[orig];
+               std::cout << " to " << letters[j] << "/" << digits[j] << std::endl;
+               std::cout << std::endl;
+
+
+               print(termIndices, false, i);
+            }
+            termIndices[i] = orig;
+         }
+      }
+
+   } while (std::next_permutation(digits.begin(), digits.end()));
+
+   return 0;
+}
+```
