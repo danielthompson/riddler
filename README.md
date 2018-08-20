@@ -1,5 +1,9 @@
 ## Riddler Solutions
 
+### [Riddler 11/18/2016](2016-11-18/)
+
+Classic: The Puzzle Of The Lonesome King
+
 ### [Riddler 6/1/2018](2018-06-01/)
 
 Classic: Should You Take A Construction Contract?
