@@ -92,6 +92,14 @@ For n = 56,000, there turns out to be a <strong>48%</strong> chance that there's
 
 It takes a while to run enough iterations for the result to converge for any given population size. The program above is single-threaded, but the problem is trivially parallelizable. I've implemented a multi-threaded version [here](https://github.com/danielthompson/riddler-solitaria/blob/master/multithreaded.cpp) (github.com) that runs `[number of cores] * iterationsPerStep` iterations (Warning: this will spike your CPU!). 
 
-The results hover around 50% regardless of population size, but graphing them shows a kind of repeating cyclic pattern:
+The results hover around 50% regardless of population size, but graphing them shows an interesting pattern:
 
+![Graph1](Graph1.png)
 
+Modifying the horizontal axis to log scale shows the following:
+
+![Graph2](Graph2.png)
+
+We can smooth this out a bit by modifying our population step size to grow by a percentage (say, 5%) instead of a fixed number (1000 in the code above):
+
+![Graph3](Graph3.png)
