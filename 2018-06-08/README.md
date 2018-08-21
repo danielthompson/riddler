@@ -260,7 +260,7 @@ from T/9 to H/7
 With the letter -> number mapping I found, there are actually three different replacements that could be made to make the sum true. The first one causes the digit 4 to be absent from the decoded addends and sum, which violates the rules. Both the second and third ones are valid according to the rules, as far as I can tell. 
 
 
-```C++
+```c++
 #include <iostream>
 #include <algorithm>
 #include <vector>
