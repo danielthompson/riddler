@@ -60,7 +60,7 @@ Graphing that, courtesy of https://www.desmos.com/calculator:
 
 The way to interpret this is is:
 
-- Values of `x < 0` are not meaningful.
+- At `x < 0`, the top outlying segments intersect the bottom ones, and the length of the center segment can grow without bound.
 
 - At `x = 0`, the center segment degenerates to a point, and the diagram looks like this:
 
@@ -78,7 +78,7 @@ The length here is just over $28m (`2 * 10 * sqrt(2)`).
 
 _Note that the graph shows `y = 30` for `x = 10`, which is verifiable by inspection._
 
-- At `x > 10`, the outlying segments actually tilt away from the center, and the length can grow without bound.
+- At `x > 10`, the outlying segments tilt away from the center, and the length of the center segment can grow without bound.
 
 So, there is a minimum in cost at around `x ~ 4`. To find that mininum, we calculate the derivative of `y`, `y'`:
 
