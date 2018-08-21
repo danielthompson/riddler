@@ -15,4 +15,5 @@ Classic: Should You Take A Construction Contract?
 ### [Riddler 6/8/2018](2018-06-08/)
 
 Express: A Puzzle of Villainous Improv
+
 Classic: The Case of the Smudged Secret Message
