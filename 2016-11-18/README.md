@@ -94,7 +94,7 @@ It takes a while to run enough iterations for the result to converge for any giv
 
 _Note: The following graphs were produced by the multi-threaded version, taking 16,000 samples at each population size._
 
-The results hover around 50% regardless of population size, but graphing them shows an interesting pattern:
+There is a winner about 50% of the time regardless of population size. Plotting winning percentage against population size shows an interesting pattern:
 
 ![Graph1](Graph1.png)
 
@@ -110,4 +110,7 @@ Increasing the step size by a percentage allows us to increase the upper limit o
 
 ![Graph4](Graph4.png)
 
+Finally, we can get arbitrarily close to the true percentage at population size by increasing the sample size. Here's what it looks like for 512,000 samples:
+
+![Graph5](Graph5.png)
 
