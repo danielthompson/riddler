@@ -4,6 +4,10 @@
 
 Classic: The Puzzle Of The Lonesome King
 
+### [Riddler 4/14/2017](2017-04-14/)
+
+Classic: A Constitutional Problem
+
 ### [Riddler 6/1/2018](2018-06-01/)
 
 Classic: Should You Take A Construction Contract?
