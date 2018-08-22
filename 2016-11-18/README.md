@@ -110,7 +110,7 @@ Increasing the step size by a percentage allows us to increase the upper limit o
 
 ![Graph4](Graph4.png)
 
-Finally, we can get arbitrarily close to the true percentage at population size by increasing the sample size. Here's what it looks like for 512,000 samples:
+Finally, we can get arbitrarily close to the true percentage at population size by increasing the sample size. Here's what it looks like for 512,000 samples (with a y-axis adjustment):
 
 ![Graph5](Graph5.png)
 
