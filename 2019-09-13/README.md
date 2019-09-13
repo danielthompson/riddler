@@ -34,4 +34,4 @@ Hmm. Looks kind of like a crystalline structure, but honestly it's hard to tell.
 
 Next, I used [MIConvexHull](https://designengrlab.github.io/MIConvexHull/) to generate the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of my point cloud. Not only does that library output the points that make up the hull, but it also outputs the triangular faces of the hull. I outputted the hull faces to an [OBJ file](https://en.wikipedia.org/wiki/Wavefront_.obj_file) (a very simple 3D model format), and then used an online OBJ viewer to see:
 
-{% include youtube.html id=_hb1UbvVmZc %}
+{% include youtube.html id=hb1UbvVmZc %}
