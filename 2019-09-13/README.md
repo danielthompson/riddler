@@ -22,7 +22,31 @@ Then, I wrote a short program that:
  * Generates a point in 3D space for each sampled point that's inside the shape in each slice
  * Outputs those points into a text file
 
-Each image is 388x355, so I sampled in a square grid every 10 pixels. This results in a point cloud in which every point is inside whatever the shape is. Visualizing the cloud (courtesy of http://lidarview.com/) looks like this:
+Each image is 388x355, so I sampled in a square grid every 10 pixels. This results in a [point cloud](pointcloud.txt) in which every point is inside whatever the shape is:
+
+```
+# x y z, where x and y are image coordinates and z is the depth coordinate, for which I just used the image sequence number
+190 180 4
+190 180 5
+200 180 5
+190 180 6
+200 180 6
+190 180 7
+200 180 7
+190 170 8
+190 180 8
+200 180 8
+190 170 9
+190 180 9
+200 180 9
+190 170 10
+190 180 10
+200 180 10
+190 170 11
+... etc
+```
+
+Visualizing the cloud (courtesy of [LidarView](http://lidarview.com/)) looks like this:
 
 ![Point Cloud 1](pointcloud1.png)
 
@@ -32,6 +56,28 @@ Each image is 388x355, so I sampled in a square grid every 10 pixels. This resul
 
 Hmm. Looks kind of like a crystalline structure, but honestly it's hard to tell.
 
-Next, I used [MIConvexHull](https://designengrlab.github.io/MIConvexHull/) to generate the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of my point cloud. Not only does that library output the points that make up the hull, but it also outputs the triangular faces of the hull. I outputted the hull faces to an [OBJ file](https://en.wikipedia.org/wiki/Wavefront_.obj_file) (a very simple 3D model format), and then used an online OBJ viewer to see:
+Next, I used [MIConvexHull](https://designengrlab.github.io/MIConvexHull/) to generate the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of my point cloud. Not only does that library output the points that make up the hull, but it also outputs the triangular faces of the hull. I outputted the hull faces to an [OBJ file](convexhull.obj) ([a very simple 3D model format](https://en.wikipedia.org/wiki/Wavefront_.obj_file)):
+
+```
+v 200 180 5
+v 200 150 23
+v 190 140 26
+f 1 2 3
+v 330 250 106
+v 330 210 132
+v 330 100 200
+f 4 5 6
+v 200 180 5
+v 250 210 41
+v 310 240 86
+f 7 8 9
+v 190 330 201
+v 200 330 197
+v 200 330 191
+f 10 11 12
+... etc
+```
+
+...and then used an online OBJ viewer to visualize it:
 
 {% include youtube.html id=hb1UbvVmZc %}
