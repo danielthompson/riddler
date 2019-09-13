@@ -16,12 +16,10 @@ A **cube**. The camera moves along a vector from one corner to the opposite corn
 
 I started by decomposing the gif file into its constituent frames, for a total of 301 image slices.
 
-|  |  |  |
-| ------------- | ------------- | ------------- |
-| ![frame 0](frames/frame000.gif)  | ![frame 30](frames/frame030.gif)  | ![frame 60](frames/frame060.gif)  |
-| ![frame 90](frames/frame090.gif)  | ![frame 120](frames/frame120.gif)  | ![frame 150](frames/frame150.gif)  |
-| ![frame 180](frames/frame180.gif)  | ![frame 210](frames/frame210.gif)  | ![frame 240](frames/frame024.gif)  |
-| ![frame 270](frames/frame270.gif)  | ![frame 300](frames/frame300.gif)  | |
+| ![frame 30](frames/frame030.gif)  | ![frame 60](frames/frame060.gif)  | ![frame 90](frames/frame090.gif)  |
+| ![frame 120](frames/frame120.gif)  | ![frame 150](frames/frame150.gif)  | ![frame 180](frames/frame180.gif)  |
+| ![frame 210](frames/frame210.gif)  | ![frame 240](frames/frame240.gif)  | ![frame 270](frames/frame270.gif)  |
+
 
 Then, I wrote a short program that:
 
