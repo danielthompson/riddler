@@ -80,4 +80,4 @@ f 10 11 12
 
 ...and then used an online OBJ viewer to visualize it:
 
-{% include youtube.html id=hb1UbvVmZc %}
+{% include youtube.html id="_hb1UbvVmZc" %}
