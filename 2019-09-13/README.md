@@ -12,7 +12,7 @@ What sort of three-dimensional shape is the crystal? No pressure — Dakota Jone
 
 ### Answer:
 
-A **cube**. The camera moves along a vector from one corner to the opposite corner.
+At least a **trigonal trapezohedron**, and maybe one that is a **cube**. Since no information is given on the resolution of the slices (how "thick" they are), there is no way to tell whether the faces are actually identical (if they are, it's a cube). The camera moves along a vector from one corner to the opposite corner.
 
 I started by decomposing the gif file into its constituent frames, for a total of 301 image slices.
 
@@ -20,12 +20,97 @@ I started by decomposing the gif file into its constituent frames, for a total o
 | ![frame 120](frames/frame120.gif)  | ![frame 150](frames/frame150.gif)  | ![frame 180](frames/frame180.gif)  |
 | ![frame 210](frames/frame210.gif)  | ![frame 240](frames/frame240.gif)  | ![frame 270](frames/frame270.gif)  |
 
-
 Then, I wrote a short program that:
 
  * Samples each image slice at regular intervals
  * Generates a point in 3D space for each sampled point that's inside the shape in each slice
  * Outputs those points into a text file
+
+```C#
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using MIConvexHull;
+
+namespace Sampler
+{
+   class Program
+   {
+      static void Main(string[] args)
+      {
+         // get all images in directory, sorted by name
+         DirectoryInfo directory = new DirectoryInfo("/slices/");
+         List<FileInfo> files = directory.GetFiles("*.gif").OrderBy(p => p.Name).ToList();
+         int current = 0;
+         List<Point> points = new List<Point>();
+         StringBuilder pointcloudBuilder = new StringBuilder();
+         int overallNumSamples = 0;
+
+         foreach (FileInfo file in files)
+         {
+            Bitmap bitmap = new Bitmap(Image.FromFile(file.FullName));
+            double z = current++;
+
+            int numSamples = 0;
+
+            for (int x = 0; x < bitmap.Width; x += 10)
+            {
+               for (int y = 0; y < bitmap.Height; y += 10)
+               {
+                  // perform sample
+                  Color color = bitmap.GetPixel(x, y);
+
+                  // add point to list, if needed
+                  if (color.R < 250 || color.G < 250 || color.B < 250)
+                  {
+                     numSamples++;
+                     points.Add(new Point(){x=x, y=y, z=z});
+                     pointcloudBuilder.AppendLine($"{x} {y} {z}");
+                  }
+               }
+            }
+
+            overallNumSamples += numSamples;
+
+            Console.WriteLine($"file {file.Name} had {numSamples} samples written");
+         }
+
+         double[][] vertices = new double[overallNumSamples][];
+
+         for (int i = 0; i < vertices.Length; i++)
+         {
+            vertices[i] = new[] {points[i].x, points[i].y, points[i].z};
+         }
+
+         var convexHull = ConvexHull.Create(vertices);
+
+         StringBuilder objBuilder = new StringBuilder();
+
+         int vertexIndex = 1;
+
+         foreach (DefaultConvexFace<DefaultVertex> face in convexHull.Result.Faces)
+         {
+            objBuilder.AppendLine($"v {face.Vertices[0].Position[0]} {face.Vertices[0].Position[1]} {face.Vertices[0].Position[2]}");
+            objBuilder.AppendLine($"v {face.Vertices[1].Position[0]} {face.Vertices[1].Position[1]} {face.Vertices[1].Position[2]}");
+            objBuilder.AppendLine($"v {face.Vertices[2].Position[0]} {face.Vertices[2].Position[1]} {face.Vertices[2].Position[2]}");
+            objBuilder.AppendLine($"f {vertexIndex++} {vertexIndex++} {vertexIndex++}");
+         }
+
+         // write point list to file
+         File.WriteAllText("pointcloud.txt", pointcloudBuilder.ToString());
+         File.WriteAllText("convexhull.obj", objBuilder.ToString());
+      }
+   }
+
+   class Point
+   {
+      public double x, y, z;
+   }
+}
+```
 
 Each image is 388x355, so I sampled in a square grid every 10 pixels. This results in a [point cloud](pointcloud.txt) in which every point is inside whatever the shape is:
 
