@@ -171,3 +171,5 @@ f 10 11 12
 ...and then used an online OBJ viewer to visualize it:
 
 {% include youtube.html id="_hb1UbvVmZc" %}
+
+Note that due to sampling error, the hull isn't exactly a regular polyhedron, which you'd expect based on the slices.
