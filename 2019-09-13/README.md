@@ -12,7 +12,7 @@ What sort of three-dimensional shape is the crystal? No pressure — Dakota Jone
 
 ### Answer:
 
-At least a **trigonal trapezohedron**, and maybe one that is a **cube**. Since no information is given on the resolution of the slices (how "thick" they are), there is no way to tell whether the faces are actually identical (if they are, it's a cube).
+At least a **[trigonal trapezohedron](https://en.wikipedia.org/wiki/Trigonal_trapezohedron)**, and maybe one that is a **cube**. Since no information is given on the resolution of the slices (how "thick" they are), there is no way to tell whether the faces are rhombi or squares (if the former, it's just a trigonal trapezohdron, if the latter, it's a cube).
 
 I started by decomposing the gif file into its constituent frames, for a total of 301 image slices.
 
