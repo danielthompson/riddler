@@ -26,7 +26,7 @@ Then, I wrote a short program that:
  * Generates a point in 3D space for each sampled point that's inside the shape in each slice
  * Outputs those points into a text file
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Drawing;
