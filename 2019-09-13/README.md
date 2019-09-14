@@ -12,7 +12,7 @@ What sort of three-dimensional shape is the crystal? No pressure — Dakota Jone
 
 ### Answer:
 
-At least a **trigonal trapezohedron**, and maybe one that is a **cube**. Since no information is given on the resolution of the slices (how "thick" they are), there is no way to tell whether the faces are actually identical (if they are, it's a cube). The camera moves along a vector from one corner to the opposite corner.
+At least a **trigonal trapezohedron**, and maybe one that is a **cube**. Since no information is given on the resolution of the slices (how "thick" they are), there is no way to tell whether the faces are actually identical (if they are, it's a cube).
 
 I started by decomposing the gif file into its constituent frames, for a total of 301 image slices.
 
@@ -144,9 +144,11 @@ Visualizing the cloud (courtesy of [LidarView](http://lidarview.com/)) looks lik
 
 ![Point Cloud 3](pointcloud3.png)
 
-Hmm. Looks kind of like a crystalline structure, but honestly it's hard to tell.
+Hmm. Looks kind of like a crystalline structure, but it's hard to tell.
 
-Next, I used [MIConvexHull](https://designengrlab.github.io/MIConvexHull/) to generate the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of my point cloud. Not only does that library output the points that make up the hull, but it also outputs the triangular faces of the hull. I outputted the hull faces to an [OBJ file](convexhull.obj) ([a very simple 3D model format](https://en.wikipedia.org/wiki/Wavefront_.obj_file)):
+Next, I used [MIConvexHull](https://designengrlab.github.io/MIConvexHull/) to generate the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of my point cloud. Not only does that library output the points that make up the hull, it also outputs the triangular faces of the hull.
+
+I outputted those hull faces to an [OBJ file](convexhull.obj) ([a very simple 3D model format](https://en.wikipedia.org/wiki/Wavefront_.obj_file)) that looks like this:
 
 ```
 v 200 180 5
@@ -172,4 +174,4 @@ f 10 11 12
 
 {% include youtube.html id="_hb1UbvVmZc" %}
 
-Note that due to sampling error, the hull isn't exactly a regular polyhedron, which you'd expect based on the slices.
+Note that the hull isn't exactly a trapezohedron (which we'd expect based on the slices) due to sampling error.
