@@ -338,7 +338,7 @@ namespace StateNameStrings
 }
 ```
 
-This results in the following output, which shows for every starting node, what the longest path is from that node:
+This results in the following output, which shows the longest possible path for every starting node:
 
 ```
 AL => ALAKSCASDCOHINVTNMARIAZ
