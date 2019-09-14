@@ -190,7 +190,61 @@ For reference, the full list of abbreviations is available [here](https://pe.usp
 
 **MPWALAKSCASDCOHINVTNMARIAZ**
 
-To figure this out, I started with the 59 abbreviations from the USPS site, and generated the allowed transitions from state to state:
+To figure this out, I started with the 59 abbreviations from the USPS site:
+
+```csharp
+private static readonly string[] States = new string[]
+{
+   "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"
+};
+```
+
+
+
+private static List<Transition> GetTransitions()
+{
+   List<Transition> transitions = new List<Transition>();
+
+   foreach (string firstState in States)
+   {
+      char second = firstState[1];
+      foreach (string secondState in States)
+      {
+         char first = secondState[0];
+         if (first == second && firstState != secondState)
+         {
+            transitions.Add(new Transition() { x = firstState, y = secondState});
+         }
+      }
+   }
+   return transitions;
+}
+```
+
+...and generated the allowed transitions from state to state:
+
+```csharp
+private static List<Transition> GetTransitions()
+{
+   List<Transition> transitions = new List<Transition>();
+
+   foreach (string firstState in States)
+   {
+      char second = firstState[1];
+      foreach (string secondState in States)
+      {
+         char first = secondState[0];
+         if (first == second && firstState != secondState)
+         {
+            transitions.Add(new Transition() { x = firstState, y = secondState});
+         }
+      }
+   }
+   return transitions;
+}
+```
+
+... which are:
 
 ```
 AL -> LA, AK -> KS, AK -> KY, AS -> SC, AS -> SD, AR -> RI, CA -> AL, CA -> AK
