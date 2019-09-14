@@ -173,7 +173,6 @@ f 10 11 12
 ...and then used an online OBJ viewer to visualize it:
 
 {% include youtube.html id="_hb1UbvVmZc" %}
-__
 
 Note that the hull isn't exactly a trapezohedron - or cube - (which we'd expect based on the slices) due to sampling error.
 
@@ -215,7 +214,6 @@ TN -> NV, TN -> NH, TN -> NJ, TN -> NM, TN -> NY, TN -> NC, TN -> ND, UT -> TN
 UT -> TX, VT -> TN, VT -> TX, VI -> ID, VI -> IL, VI -> IN, VI -> IA, VA -> AL
 VA -> AK, VA -> AS, VA -> AZ, VA -> AR, WA -> AL, WA -> AK, WA -> AS, WA -> AZ
 WA -> AR, WV -> VT, WV -> VI, WV -> VA, WI -> ID, WI -> IL, WI -> IN, WI -> IA
-
 ```
 There are 168 such transitions. The states and transitions can be interpreted as a [directed graph](https://en.wikipedia.org/wiki/Directed_graph), where the 59 states are the nodes, and the 168 transitions are the edges linking those nodes. This can be visualized in a graphing tool:
 
@@ -340,7 +338,7 @@ namespace StateNameStrings
 }
 ```
 
-This results in the following output:
+This results in the following output, which shows for every starting node, what the longest path is from that node:
 
 ```
 AL => ALAKSCASDCOHINVTNMARIAZ
