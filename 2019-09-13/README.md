@@ -188,7 +188,7 @@ For reference, the full list of abbreviations is available [here](https://pe.usp
 
 ### Answer:
 
-**MPWALAKSCASDCOHINVTNMARIAZ**.
+**MPWALAKSCASDCOHINVTNMARIAZ**
 
 To figure this out, I started with the 59 abbreviations from the USPS site, and generated the allowed transitions from state to state:
 
