@@ -255,9 +255,9 @@ namespace StateNameStrings
          {
             List<Transition> startingChain = new List<Transition>();
             string longest = string.Empty;
-            GetLocal(startingChain, state);
+            TryNextRecursive(startingChain, state);
 
-            void GetLocal(List<Transition> chain, string currentLongest)
+            void TryNextRecursive(List<Transition> chain, string currentLongest)
             {
                // get the current node
                string startingState = chain.LastOrDefault()?.y ?? state;
@@ -278,7 +278,7 @@ namespace StateNameStrings
                   if (!IsDoubled(proposed))
                   {
                      chain.Add(next);
-                     GetLocal(chain, proposed);
+                     TryNextRecursive(chain, proposed);
                   }
                }
 
