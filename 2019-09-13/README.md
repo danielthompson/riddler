@@ -174,4 +174,4 @@ f 10 11 12
 
 {% include youtube.html id="_hb1UbvVmZc" %}
 
-Note that the hull isn't exactly a trapezohedron (which we'd expect based on the slices) due to sampling error.
+Note that the hull isn't exactly a trapezohedron - or cube - (which we'd expect based on the slices) due to sampling error.
