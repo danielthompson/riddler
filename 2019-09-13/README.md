@@ -199,28 +199,6 @@ private static readonly string[] States = new string[]
 };
 ```
 
-
-
-private static List<Transition> GetTransitions()
-{
-   List<Transition> transitions = new List<Transition>();
-
-   foreach (string firstState in States)
-   {
-      char second = firstState[1];
-      foreach (string secondState in States)
-      {
-         char first = secondState[0];
-         if (first == second && firstState != secondState)
-         {
-            transitions.Add(new Transition() { x = firstState, y = secondState});
-         }
-      }
-   }
-   return transitions;
-}
-```
-
 ...and generated the allowed transitions from state to state:
 
 ```csharp
@@ -243,7 +221,6 @@ private static List<Transition> GetTransitions()
    return transitions;
 }
 ```
-
 ... which are:
 
 ```
