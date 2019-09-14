@@ -225,4 +225,182 @@ Hmm. Lots of nodes and edges here. A circle layout gives:
 
 ![circle viz](circle.png)
 
-Not much more clear, to be honest.
+Not much more clear, although we can see a couple of interesting things:
+
+* Some states only have incoming edges, like `KY` and `TX`. This means that these states can only appear at the end of the string (if at all).
+* Some states only have outgoing edges, like `FM` and `GU`. This means that these states can only appear at the beginning of the string (if at all).
+* Most states have both incoming and outgoing edges, so they can appear anywhere in the string.
+
+After that, I wrote a short program that performs a [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) of the graph to find the [longest simple path](https://en.wikipedia.org/wiki/Longest_path_problem). This is complicated slightly because the graph is cyclic, so it has no particular starting node. Since we can start anywhere, we perform the search once for every node, starting on that node. We terminate the search once there are no more allowable transitions, according to the rules. Here's the code:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace StateNameStrings
+{
+   class Program
+   {
+      private static readonly string[] States = new string[]
+      {
+         "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"
+      };
+
+      static void Main(string[] args)
+      {
+         List<Transition> allTransitions = GetTransitions();
+
+         string overallLongest = string.Empty;
+
+         foreach (var state in States)
+         {
+            List<Transition> startingChain = new List<Transition>();
+            string longest = string.Empty;
+            GetLocal(startingChain, state);
+
+            void GetLocal(List<Transition> chain, string currentLongest)
+            {
+               // get the current node
+               string startingState = chain.LastOrDefault()?.y ?? state;
+
+               // get available transitions from current node
+               List<Transition> nextTransitions = allTransitions
+                  .Where(p => p.x == startingState)
+                  .Except(chain)
+                  .ToList();
+
+               while (nextTransitions.Any())
+               {
+                  // if a transition is available, try it
+                  Transition next = nextTransitions.First();
+                  nextTransitions.Remove(next);
+                  string proposed = currentLongest + next.y.Substring(1, 1);
+
+                  if (!IsDoubled(proposed))
+                  {
+                     chain.Add(next);
+                     GetLocal(chain, proposed);
+                  }
+               }
+
+               if (currentLongest.Length > longest.Length)
+               {
+                  longest = currentLongest;
+               }
+            }
+            Console.WriteLine($"{state} => {longest}");
+            if (longest.Length > overallLongest.Length)
+            {
+               overallLongest = longest;
+            }
+         }
+         Console.WriteLine($"Overall longest: {overallLongest}");
+      }
+
+      private static bool IsDoubled(string proposed)
+      {
+         for (int i = 0; i < proposed.Length - 1; i++)
+         {
+            string sentinel = proposed.Substring(i, 2);
+            for (int j = i + 1; j < proposed.Length - 1; j++)
+            {
+               string potentialMatch = proposed.Substring(j, 2);
+               if (sentinel == potentialMatch)
+                  return true;
+            }
+         }
+         return false;
+      }
+
+      private static List<Transition> GetTransitions()
+      {
+         List<Transition> transitions = new List<Transition>();
+
+         foreach (string firstState in States)
+         {
+            char second = firstState[1];
+            foreach (string secondState in States)
+            {
+               char first = secondState[0];
+               if (first == second && firstState != secondState)
+               {
+                  transitions.Add(new Transition() { x = firstState, y = secondState});
+               }
+            }
+         }
+         return transitions;
+      }
+   }
+
+   class Transition
+   {
+      public string x, y;
+   }
+}
+```
+
+This results in the following output:
+
+```
+AL => ALAKSCASDCOHINVTNMARIAZ
+AK => AKSCALASDCOHINVTNMARIAZ
+AS => ASCALAKSDCOHINVTNMARIAZ
+AZ => AZ
+AR => ARIDCALAKSCOHINVTNMPWVIL
+CA => CALAKSCOHIDCTNVINMARIAS
+CO => COHIDCALAKSCTNVINMARIAS
+CT => CTNVIDCALAKSCOHINMARIAS
+DE => DE
+DC => DCALAKSCOHINVTNMARIAS
+FM => FMHIDCALAKSCORINVTNMPWVIL
+FL => FLAKSCASDCOHINVTNMARIAL
+GA => GALAKSCASDCOHINVTNMARIAZ
+GU => GUTNVIDCALAKSCOHINMARIAS
+HI => HIDCALAKSCORINVTNMPWVIL
+ID => IDCALAKSCOHINVTNMARIAS
+IL => ILAKSCASDCOHINVTNMARIAL
+IN => INVTNHIDCALAKSCORIASDE
+IA => IALAKSCASDCOHINVTNMPWVID
+KS => KSCALASDCOHINVTNMARIAK
+KY => KY
+LA => LAKSCASDCOHINVTNMARIAL
+ME => ME
+MH => MHIDCALAKSCORINVTNMPWVIL
+MD => MDCALAKSCOHINVTNMARIAS
+MA => MALAKSCASDCOHINVTNMIARID
+MI => MIDCALAKSCOHINVTNMPWVIAR
+MN => MNVTNHIDCALAKSCORINMPWVIL
+MS => MSCALAKSDCOHINVTNMARIAS
+MO => MOHIDCALAKSCORINVTNMPWVIL
+MT => MTNVIDCALAKSCOHINMARIAS
+NE => NE
+NV => NVTNHIDCALAKSCORINMPWVIL
+NH => NHIDCALAKSCORINVTNMPWVIL
+NJ => NJ
+NM => NMHIDCALAKSCORINVTNCTX
+NY => NY
+NC => NCALAKSCOHIDCTNVINMARIAS
+ND => NDCALAKSCOHINVTNMARIAS
+MP => MPWALAKSCASDCOHINVTNMARIAZ
+OH => OHIDCALAKSCORINVTNMPWVIL
+OK => OKSCALASDCOHINVTNMARIAK
+OR => ORIDCALAKSCOHINVTNMPWVIL
+PW => PWALAKSCASDCOHINVTNMARIAZ
+PA => PALAKSCASDCOHINVTNMARIAZ
+PR => PRIDCALAKSCOHINVTNMPWVIL
+RI => RIDCALAKSCOHINVTNMPWVIL
+SC => SCALAKSDCOHINVTNMARIAS
+SD => SDCALAKSCOHINVTNMARIAS
+TN => TNVIDCALAKSCOHINMARIAS
+TX => TX
+UT => UTNVIDCALAKSCOHINMARIAS
+VT => VTNVIDCALAKSCOHINMARIAS
+VI => VIDCALAKSCOHINVTNMARIAS
+VA => VALAKSCASDCOHINVTNMARIAZ
+WA => WALAKSCASDCOHINVTNMARIAZ
+WV => WVTNVIDCALAKSCOHINMARIAS
+WI => WIDCALAKSCOHINVTNMARIAS
+WY => WY
+Overall longest: MPWALAKSCASDCOHINVTNMARIAZ
+```
