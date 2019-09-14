@@ -173,5 +173,77 @@ f 10 11 12
 ...and then used an online OBJ viewer to visualize it:
 
 {% include youtube.html id="_hb1UbvVmZc" %}
+__
 
 Note that the hull isn't exactly a trapezohedron - or cube - (which we'd expect based on the slices) due to sampling error.
+
+### Riddler Classic 9/13/2019
+
+Original post [here](https://fivethirtyeight.com/features/can-you-help-dakota-jones-raid-the-lost-arc/) (fivethirtyeight.com).
+
+Recent Riddlers have tackled Scrabble Superstrings and road trips through 48 states. For this week’s Riddler Classic, Max Maguire combines these two puzzles into one:
+
+The challenge is to find the longest string of letters in which (1) every pair of consecutive letters is a two-letter state or territory abbreviation, and (2) no state abbreviation occurs more than once. For example, Guam, Utah and Texas can be combined into the valid four-letter string GUTX. Another valid string is ALAK (Alabama, Louisiana and Alaska), while ALAL (Alabama, Louisiana and Alabama) is invalid because it includes the same state, Alabama, twice.
+
+For reference, the full list of abbreviations is available [here](https://pe.usps.com/text/pub28/28apb.htm), courtesy of the United States Postal Service.
+
+### Answer:
+
+**MPWALAKSCASDCOHINVTNMARIAZ**.
+
+To figure this out, I started with the 59 abbreviations from the USPS site, and generated the allowed transitions from state to state:
+
+```
+AL -> LA, AK -> KS, AK -> KY, AS -> SC
+AS -> SD, AR -> RI, CA -> AL, CA -> AK
+CA -> AS, CA -> AZ, CA -> AR, CO -> OH
+CO -> OK, CO -> OR, CT -> TN, CT -> TX
+DC -> CA, DC -> CO, DC -> CT, FM -> ME
+FM -> MH, FM -> MD, FM -> MA, FM -> MI
+FM -> MN, FM -> MS, FM -> MO, FM -> MT
+FM -> MP, FL -> LA, GA -> AL, GA -> AK
+GA -> AS, GA -> AZ, GA -> AR, GU -> UT
+HI -> ID, HI -> IL, HI -> IN, HI -> IA
+ID -> DE, ID -> DC, IL -> LA, IN -> NE
+IN -> NV, IN -> NH, IN -> NJ, IN -> NM
+IN -> NY, IN -> NC, IN -> ND, IA -> AL
+IA -> AK, IA -> AS, IA -> AZ, IA -> AR
+KS -> SC, KS -> SD, LA -> AL, LA -> AK
+LA -> AS, LA -> AZ, LA -> AR, MH -> HI
+MD -> DE, MD -> DC, MA -> AL, MA -> AK
+MA -> AS, MA -> AZ, MA -> AR, MI -> ID
+MI -> IL, MI -> IN, MI -> IA, MN -> NE
+MN -> NV, MN -> NH, MN -> NJ, MN -> NM
+MN -> NY, MN -> NC, MN -> ND, MS -> SC
+MS -> SD, MO -> OH, MO -> OK, MO -> OR
+MT -> TN, MT -> TX, NV -> VT, NV -> VI
+NV -> VA, NH -> HI, NM -> ME, NM -> MH
+NM -> MD, NM -> MA, NM -> MI, NM -> MN
+NM -> MS, NM -> MO, NM -> MT, NM -> MP
+NC -> CA, NC -> CO, NC -> CT, ND -> DE
+ND -> DC, MP -> PW, MP -> PA, MP -> PR
+OH -> HI, OK -> KS, OK -> KY, OR -> RI
+PW -> WA, PW -> WV, PW -> WI, PW -> WY
+PA -> AL, PA -> AK, PA -> AS, PA -> AZ
+PA -> AR, PR -> RI, RI -> ID, RI -> IL
+RI -> IN, RI -> IA, SC -> CA, SC -> CO
+SC -> CT, SD -> DE, SD -> DC, TN -> NE
+TN -> NV, TN -> NH, TN -> NJ, TN -> NM
+TN -> NY, TN -> NC, TN -> ND, UT -> TN
+UT -> TX, VT -> TN, VT -> TX, VI -> ID
+VI -> IL, VI -> IN, VI -> IA, VA -> AL
+VA -> AK, VA -> AS, VA -> AZ, VA -> AR
+WA -> AL, WA -> AK, WA -> AS, WA -> AZ
+WA -> AR, WV -> VT, WV -> VI, WV -> VA
+WI -> ID, WI -> IL, WI -> IN, WI -> IA
+
+```
+There are 168 such transitions. The states and transitions can be interpreted as a [directed graph](https://en.wikipedia.org/wiki/Directed_graph), where the 59 states are the nodes, and the 168 transitions are the edges linking those nodes. This can be visualized in a graphing tool:
+
+![layout viz](graph.svg)
+
+Hmm. Lots of nodes and edges here. A circle layout gives:
+
+![circle viz](circle.png)
+
+Not much more clear, to be honest.
