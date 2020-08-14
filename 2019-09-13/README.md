@@ -2,15 +2,15 @@
 
 Original post [here](https://fivethirtyeight.com/features/can-you-help-dakota-jones-raid-the-lost-arc/) (fivethirtyeight.com).
 
-At long last, Dakota Jones is close to finding the Lost Arc, a geometric antiquity buried deep in the sands of Egypt. Along the way, she discovered what she described as a “highly symmetric crystal” that’s needed to precisely locate the Arc. Dakota measured the crystal using her laser scanner and relayed the results to you. But nefarious agents have gotten wind of her plans, and Dakota and the crystal are nowhere to be found.
+> At long last, Dakota Jones is close to finding the Lost Arc, a geometric antiquity buried deep in the sands of Egypt. Along the way, she discovered what she described as a “highly symmetric crystal” that’s needed to precisely locate the Arc. Dakota measured the crystal using her laser scanner and relayed the results to you. But nefarious agents have gotten wind of her plans, and Dakota and the crystal are nowhere to be found.
+> 
+> Locating the Arc is now up to you. To do that, you must recreate the crystal using the data from Dakota’s laser scanner. The scanner takes a 3D object, and records 2D cross-sectional slices along the third dimension. Here’s the looping animation file the scanner produced for the crystal:
+> 
+> ![scanner](jones_538.gif)
+> 
+> What sort of three-dimensional shape is the crystal? No pressure — Dakota Jones, nay, the entire world, is counting on you to locate the Lost Arc and ensure its place in a museum!
 
-Locating the Arc is now up to you. To do that, you must recreate the crystal using the data from Dakota’s laser scanner. The scanner takes a 3D object, and records 2D cross-sectional slices along the third dimension. Here’s the looping animation file the scanner produced for the crystal:
-
-![scanner](jones_538.gif)
-
-What sort of three-dimensional shape is the crystal? No pressure — Dakota Jones, nay, the entire world, is counting on you to locate the Lost Arc and ensure its place in a museum!
-
-### Answer:
+### Answer
 
 At least a **[trigonal trapezohedron](https://en.wikipedia.org/wiki/Trigonal_trapezohedron)**, and maybe one that is a **cube**. Since no information is given on the resolution of the slices (how "thick" they are), there is no way to tell whether the faces are rhombi or squares (if the former, it's just a trigonal trapezohdron, if the latter, it's a cube).
 
@@ -180,13 +180,13 @@ Note that the hull isn't exactly a trapezohedron - or cube - (which we'd expect 
 
 Original post [here](https://fivethirtyeight.com/features/can-you-help-dakota-jones-raid-the-lost-arc/) (fivethirtyeight.com).
 
-Recent Riddlers have tackled Scrabble Superstrings and road trips through 48 states. For this week’s Riddler Classic, Max Maguire combines these two puzzles into one:
+> Recent Riddlers have tackled Scrabble Superstrings and road trips through 48 states. For this week’s Riddler Classic, Max Maguire combines these two puzzles into one:
+> 
+> The challenge is to find the longest string of letters in which (1) every pair of consecutive letters is a two-letter state or territory abbreviation, and (2) no state abbreviation occurs more than once. For example, Guam, Utah and Texas can be combined into the valid four-letter string GUTX. Another valid string is ALAK (Alabama, Louisiana and Alaska), while ALAL (Alabama, Louisiana and Alabama) is invalid because it includes the same state, Alabama, twice.
+> 
+> For reference, the full list of abbreviations is available [here](https://pe.usps.com/text/pub28/28apb.htm), courtesy of the United States Postal Service.
 
-The challenge is to find the longest string of letters in which (1) every pair of consecutive letters is a two-letter state or territory abbreviation, and (2) no state abbreviation occurs more than once. For example, Guam, Utah and Texas can be combined into the valid four-letter string GUTX. Another valid string is ALAK (Alabama, Louisiana and Alaska), while ALAL (Alabama, Louisiana and Alabama) is invalid because it includes the same state, Alabama, twice.
-
-For reference, the full list of abbreviations is available [here](https://pe.usps.com/text/pub28/28apb.htm), courtesy of the United States Postal Service.
-
-### Answer:
+### Answer
 
 **MPWALAKSCASDCOHINVTNMARIAZ**
 

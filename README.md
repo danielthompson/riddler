@@ -1,5 +1,9 @@
 ## Riddler Solutions
 
+### [Riddler 8/14/2020](2020-08-14/)
+
+Express: A Sneaky Sorting of Squares
+
 ### [Riddler 9/13/2019](2019-09-13/)
 
 Express: Can You Help Dakota Jones Raid The Lost Arc?

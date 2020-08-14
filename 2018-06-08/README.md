@@ -4,13 +4,13 @@ Original post [here](https://fivethirtyeight.com/features/the-case-of-the-smudge
 
 From Max Rosmarin, a puzzle of villainous improv:
 
-Imagine a group of five improvisers performing the following acting exercise: They all begin a scene together, establishing a character for themselves. Halfway through the scene, each improviser switches to a character someone else has been playing, such that the same five characters remain for the entire scene but no one plays the same character in both halves. As it happens, two of the characters in the scene are villains, and three are heroes.
+> Imagine a group of five improvisers performing the following acting exercise: They all begin a scene together, establishing a character for themselves. Halfway through the scene, each improviser switches to a character someone else has been playing, such that the same five characters remain for the entire scene but no one plays the same character in both halves. As it happens, two of the characters in the scene are villains, and three are heroes.
+> 
+> Assuming that every valid reallocation of characters is equally likely, what is the probability that at least one of the actors plays a villain in both halves of the scene?
 
-Assuming that every valid reallocation of characters is equally likely, what is the probability that at least one of the actors plays a villain in both halves of the scene?
+### Answer
 
-### Answer:
-
-**45.45%**
+I got **45.45%**.
 
 I started by laying out the people and role combinations in a table, like so:
 
@@ -48,21 +48,21 @@ Counting those up = 20 / 44 = 5 / 11 = 45.45%
 
 Original post [here](https://fivethirtyeight.com/features/the-case-of-the-smudged-secret-message/) (fivethirtyeight.com).
 
-From Ben Gundry via Eric Emmet, find and replace with a twist:
+> From Ben Gundry via Eric Emmet, find and replace with a twist:
+> 
+> Riddler Nation has been enlisted by the Pentagon to perform crucial (and arithmetical) intelligence gathering. Our mission: decode two equations. In each of them, every different letter stands for a different digit. But there is a minor problem in both equations.
+> 
+> In the first equation, letters accidentally were smudged on their clandestine journey to a safe room within Riddler Headquarters and are now unreadable. (These are represented with dashes below.) But we know that all 10 digits, 0 through 9, appear in the equation.
+> 
+> ![Message 1](message1.png)
+> 
+> What digits belong to what letters, and what are the dashes?
+> 
+> In the second equation, our mathematical spies have said that one of the letters in the equation is wrong. But they can’t remember which one. Which is it?
+> 
+> ![Message 2](message2.png)
 
-Riddler Nation has been enlisted by the Pentagon to perform crucial (and arithmetical) intelligence gathering. Our mission: decode two equations. In each of them, every different letter stands for a different digit. But there is a minor problem in both equations.
-
-In the first equation, letters accidentally were smudged on their clandestine journey to a safe room within Riddler Headquarters and are now unreadable. (These are represented with dashes below.) But we know that all 10 digits, 0 through 9, appear in the equation.
-
-![Message 1](message1.png)
-
-What digits belong to what letters, and what are the dashes?
-
-In the second equation, our mathematical spies have said that one of the letters in the equation is wrong. But they can’t remember which one. Which is it?
-
-![Message 2](message2.png)
-
-### Answer (1st equation):
+### Answer (1st equation)
 
 Start by replacing the blanks with symbols:
 
@@ -199,9 +199,9 @@ Now we can use Sudoku-like deduction on our grid to fill out the rest of the puz
 
 That leaves us with an equation: 6,247,663 + 6,837,633 = 13,085,296, which you can verify is true by doing the addition.
 
-### Answer (2nd equation):
+### Answer (2nd equation)
 
-This one stumped me, so I wrote a short C++ program to brute force it (code included at bottom of answer).
+This one stumped me, so I wrote a short program to brute force it (code included at bottom of answer).
 
 The output of the program shows the following:
 
