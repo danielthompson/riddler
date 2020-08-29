@@ -1,5 +1,9 @@
 ## Riddler Solutions
 
+### [Riddler 8/28/2020](2020-08-28/)
+
+Express: Can You Cover The Globe?
+
 ### [Riddler 8/14/2020](2020-08-14/)
 
 Express: A Sneaky Sorting of Squares
