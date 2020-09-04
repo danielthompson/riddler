@@ -16,7 +16,7 @@ From Dean Ballard comes a sneaky sorting of squares:
 
 ### Answer
 
-**51028π** (approximately **160309.189**) additional square kilometers. 
+**51.028π** (approximately **160.309**) additional square kilometers. 
 
 ### Derivation
 
@@ -57,6 +57,8 @@ Then, we simplify algebraically and solve for `x`:
 ![9](eq9.svg)
 
 ![10](eq10.svg)
+
+Note that there are 1,000,000 square meters (not 1,000) in 1 square kilometer! Therefore, we have to divide by 1,000 to get the actual answer. 
 
 ### Commentary
 
